@@ -7,6 +7,7 @@ import Header from "./Header";
 import HeroBanner from "./HeroBanner";
 import Separator from "./Separator";
 import PaginationButton from "./PaginationButton";
+import DisplayDataElement from "./DisplayDataElement";
 
 export {
   Pagination,
@@ -18,4 +19,5 @@ export {
   HeroBanner,
   Separator,
   PaginationButton,
+  DisplayDataElement,
 };
