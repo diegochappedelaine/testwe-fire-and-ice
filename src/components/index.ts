@@ -1,3 +1,4 @@
 import Pagination from "./Pagination";
+import BookCard from "./BookCard";
 
-export { Pagination };
+export { Pagination, BookCard };

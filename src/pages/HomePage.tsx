@@ -1,8 +1,15 @@
+import styled from "styled-components";
 import { useEffect } from "react";
 import { useFetchLazy } from "hooks";
 import { GetBooks } from "types";
 import { API_GET_BOOKS } from "api/end-points";
-import { Pagination } from "components";
+import { Pagination, BookCard } from "components";
+
+const BooksContainer = styled.ol`
+  li {
+    margin-top: 16px;
+  }
+`;
 
 const HomePage = () => {
   const { error, loading, data, navigationLinks, fetchData } =
@@ -17,16 +24,18 @@ const HomePage = () => {
   if (error) return <p>Error</p>;
   if (!data) return <p>No datas</p>;
 
-  console.log(navigationLinks);
+  console.log(data);
 
   return (
     <div>
-      HomePage
-      <ol>
+      <h1>Game of Thrones</h1>
+      <BooksContainer>
         {data.map((book, index) => (
-          <p key={index}>{book.name}</p>
+          <li key={index}>
+            <BookCard book={book} />
+          </li>
         ))}
-      </ol>
+      </BooksContainer>
       {navigationLinks && (
         <Pagination navigationLinks={navigationLinks} fetchData={fetchData} />
       )}

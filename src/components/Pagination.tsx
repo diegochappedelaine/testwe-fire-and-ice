@@ -1,4 +1,12 @@
+import styled from "styled-components";
 import { HeaderLink } from "types";
+
+const PaginationWrapper = styled.div`
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+`;
 
 type PaginationProps = {
   navigationLinks: HeaderLink;
@@ -10,7 +18,7 @@ const Pagination: React.FC<PaginationProps> = ({
   fetchData,
 }) => {
   return (
-    <div>
+    <PaginationWrapper>
       <button
         disabled={!navigationLinks.first}
         onClick={() => fetchData(navigationLinks.first.url)}
@@ -38,7 +46,7 @@ const Pagination: React.FC<PaginationProps> = ({
       >
         {">>"}
       </button>
-    </div>
+    </PaginationWrapper>
   );
 };
 

@@ -1,4 +1,4 @@
-interface Book {
+export interface Book {
   url: string;
   name: string;
   isbn: string;
