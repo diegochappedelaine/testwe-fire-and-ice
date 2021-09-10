@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useFetch } from "hooks";
 import { GetCharacter } from "types";
 import { API_GET_CHARACTERS } from "api/end-points";
-import { DisplayDataElement, Separator } from "components";
+import { DisplayDataElement, Loading, Separator } from "components";
 import { arrayToStringWithCommas } from "utils";
 
 const CharacterPageWrapper = styled.div`
@@ -25,7 +25,7 @@ const CharacterPage = () => {
     error,
   } = useFetch<GetCharacter>(`${API_GET_CHARACTERS}/${id}`);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error</p>;
   if (!character) return <p>No datas</p>;
 

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useFetch } from "hooks";
 import { GetBook } from "types";
 import { API_GET_BOOKS } from "api/end-points";
-import { CharacterList, Separator } from "components";
+import { CharacterList, Loading, Separator } from "components";
 
 const BookPageWrapper = styled.div`
   h2 {
@@ -33,7 +33,7 @@ const BookPage = () => {
     error,
   } = useFetch<GetBook>(`${API_GET_BOOKS}/${id}`);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error</p>;
   if (!book) return <p>No datas</p>;
 

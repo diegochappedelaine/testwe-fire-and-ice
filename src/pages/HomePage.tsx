@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useFetchLazy } from "hooks";
 import { GetBooks } from "types";
 import { API_GET_BOOKS } from "api/end-points";
-import { Pagination, BookCard } from "components";
+import { Pagination, BookCard, Loading } from "components";
 
 const HomePageWrapper = styled.div`
   h2 {
@@ -40,7 +40,7 @@ const HomePage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error</p>;
   if (!books) return <p>No datas</p>;
 
