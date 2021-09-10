@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useFetchLazy } from "hooks";
 import { GetBooks } from "types";
 import { API_GET_BOOKS } from "api/end-points";
+import { Pagination } from "components";
 
 const HomePage = () => {
   const { error, loading, data, navigationLinks, fetchData } =
@@ -26,6 +27,9 @@ const HomePage = () => {
           <p key={index}>{book.name}</p>
         ))}
       </ol>
+      {navigationLinks && (
+        <Pagination navigationLinks={navigationLinks} fetchData={fetchData} />
+      )}
     </div>
   );
 };
