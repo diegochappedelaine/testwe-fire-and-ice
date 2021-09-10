@@ -36,3 +36,17 @@ export type GetBooks = Book[];
 export type GetBook = Book;
 
 export type GetCharacter = Character;
+
+interface NavigationLink {
+  page: string;
+  pageSize: string;
+  rel: string;
+  url: string;
+}
+
+export interface HeaderLink {
+  next?: NavigationLink;
+  prev?: NavigationLink;
+  first: NavigationLink;
+  last: NavigationLink;
+}
