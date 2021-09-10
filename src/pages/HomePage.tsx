@@ -5,6 +5,21 @@ import { GetBooks } from "types";
 import { API_GET_BOOKS } from "api/end-points";
 import { Pagination, BookCard } from "components";
 
+const HomePageWrapper = styled.div`
+  h2 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 73px;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+  }
+`;
+
 const BooksContainer = styled.ol`
   li {
     margin-top: 16px;
@@ -30,8 +45,8 @@ const HomePage = () => {
   if (!books) return <p>No datas</p>;
 
   return (
-    <div>
-      <h1>Game of Thrones</h1>
+    <HomePageWrapper>
+      <h2>Game of Thrones - books</h2>
       <BooksContainer>
         {books.map((book, index) => (
           <li key={index}>
@@ -42,7 +57,7 @@ const HomePage = () => {
       {navigationLinks && (
         <Pagination navigationLinks={navigationLinks} fetchData={fetchData} />
       )}
-    </div>
+    </HomePageWrapper>
   );
 };
 

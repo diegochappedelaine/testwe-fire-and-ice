@@ -37,22 +37,8 @@ const CharacterCard: React.FC<{ id: string }> = ({ id }) => {
     <Link href={`/character/${id}`}>
       <CardContainer>
         <p>
-          {character.titles?.[0]} {character.name}
+          {character.titles?.[0]} {character.name || "Unknown name"}
         </p>
-
-        <br />
-        {/* {!!character.aliases.length && (
-          <>
-            {" ("}
-            {character.aliases.map((alias, index) => (
-              <p>
-                {alias}
-                {index < character.aliases.length - 1 && ", "}
-              </p>
-            ))}
-            {")"}
-          </>
-        )} */}
       </CardContainer>
     </Link>
   );

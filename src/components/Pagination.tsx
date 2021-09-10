@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { HeaderLink } from "types";
+import { PaginationButton } from "components";
 
 const PaginationWrapper = styled.div`
   margin: 0 auto;
@@ -19,33 +20,33 @@ const Pagination: React.FC<PaginationProps> = ({
 }) => {
   return (
     <PaginationWrapper>
-      <button
+      <PaginationButton
         disabled={!navigationLinks.first}
         onClick={() => fetchData(navigationLinks.first.url)}
       >
         {"<<"}
-      </button>
+      </PaginationButton>
 
-      <button
+      <PaginationButton
         disabled={!navigationLinks.prev}
         onClick={() => fetchData(navigationLinks.prev!.url)}
       >
         {"<"}
-      </button>
+      </PaginationButton>
 
-      <button
+      <PaginationButton
         disabled={!navigationLinks.next}
         onClick={() => fetchData(navigationLinks.next!.url)}
       >
         {">"}
-      </button>
+      </PaginationButton>
 
-      <button
+      <PaginationButton
         disabled={!navigationLinks.last}
         onClick={() => fetchData(navigationLinks.last.url)}
       >
         {">>"}
-      </button>
+      </PaginationButton>
     </PaginationWrapper>
   );
 };

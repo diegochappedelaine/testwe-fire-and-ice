@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getLastParamFromUrl } from "utils";
-import { CharacterCard } from "components";
+import { CharacterCard, PaginationButton } from "components";
 
 type CharactersListProps = {
   characters: string[];
@@ -38,19 +38,19 @@ const CharactersList: React.FC<CharactersListProps> = ({ characters }) => {
           return <CharacterCard key={index} id={characterId} />;
         })}
       </ol>
-      <div>
-        <button
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <PaginationButton
           disabled={characterPaginationIndex.start === 0}
           onClick={previousPage}
         >
           {`<`}
-        </button>
-        <button
+        </PaginationButton>
+        <PaginationButton
           disabled={characters.length < characterPaginationIndex.end}
           onClick={nextPage}
         >
           {`>`}
-        </button>
+        </PaginationButton>
       </div>
     </div>
   );

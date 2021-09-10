@@ -26,7 +26,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
   return (
     <Link href={`/book/${bookId}`}>
       <CardContainer>
-        <h2>{book.name}</h2>
+        <h3>{book.name}</h3>
         <br />
         <br />
         <p>
