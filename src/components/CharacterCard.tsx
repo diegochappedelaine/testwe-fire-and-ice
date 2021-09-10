@@ -8,6 +8,18 @@ const CardContainer = styled.div`
   padding: 8px 16px;
   border: 1px solid black;
   margin-bottom: 16px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0px 5px 4px rgba(221, 221, 221, 0.25);
+  transition: background-color 0.2s ease-out;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
 `;
 
 const CharacterCard: React.FC<{ id: string }> = ({ id }) => {
@@ -24,10 +36,23 @@ const CharacterCard: React.FC<{ id: string }> = ({ id }) => {
   return (
     <Link href={`/character/${id}`}>
       <CardContainer>
-        {character.name}
-        {character.aliases.map((alias) => (
-          <p>{alias}</p>
-        ))}
+        <p>
+          {character.titles?.[0]} {character.name}
+        </p>
+
+        <br />
+        {/* {!!character.aliases.length && (
+          <>
+            {" ("}
+            {character.aliases.map((alias, index) => (
+              <p>
+                {alias}
+                {index < character.aliases.length - 1 && ", "}
+              </p>
+            ))}
+            {")"}
+          </>
+        )} */}
       </CardContainer>
     </Link>
   );

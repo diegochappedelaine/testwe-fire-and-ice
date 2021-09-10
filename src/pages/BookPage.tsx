@@ -1,8 +1,29 @@
+import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useFetch } from "hooks";
 import { GetBook } from "types";
 import { API_GET_BOOKS } from "api/end-points";
-import { CharacterList } from "components";
+import { CharacterList, Separator } from "components";
+
+const BookPageWrapper = styled.div`
+  h2 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 73px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: black;
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 32px;
+  }
+`;
 
 const BookPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -19,15 +40,17 @@ const BookPage = () => {
   const formatedReleaseDate = new Date(book.released).toLocaleDateString();
 
   return (
-    <div>
-      <h2>{book.name}</h2>
-      <br />
-      <br />
+    <BookPageWrapper>
+      <h2>Book title: {book.name}</h2>
       <p>
-        {formatedReleaseDate} - {book.numberOfPages} pages
-      </p>{" "}
+        Released on {formatedReleaseDate}
+        {" - "}
+        <span>{book.numberOfPages} pages</span>
+      </p>
+      <Separator />
+      <h3>Character involved in this book :</h3>
       <CharacterList characters={book.characters} />
-    </div>
+    </BookPageWrapper>
   );
 };
 

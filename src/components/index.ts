@@ -5,6 +5,7 @@ import CharacterList from "./CharacterList";
 import Link from "./Link";
 import Header from "./Header";
 import HeroBanner from "./HeroBanner";
+import Separator from "./Separator";
 
 export {
   Pagination,
@@ -14,4 +15,5 @@ export {
   Link,
   Header,
   HeroBanner,
+  Separator,
 };
