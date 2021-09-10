@@ -1,12 +1,7 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link } from "components";
 import { Book } from "types";
 import { getLastParamFromUrl } from "utils";
-
-const ALink = styled(Link)`
-  color: black;
-  text-decoration: none;
-`;
 
 const CardContainer = styled.div`
   padding: 16px;
@@ -30,7 +25,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
   const formatedReleaseDate = new Date(book.released).toLocaleDateString();
 
   return (
-    <ALink to={`/book/${bookId}`}>
+    <Link href={`/book/${bookId}`}>
       <CardContainer>
         <h2>{book.name}</h2>
         <br />
@@ -39,7 +34,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
           {formatedReleaseDate} - {book.numberOfPages} pages
         </p>
       </CardContainer>
-    </ALink>
+    </Link>
   );
 };
 
