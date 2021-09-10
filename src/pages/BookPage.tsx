@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useFetch } from "hooks";
 import { GetBook } from "types";
-import { API_GET_BOOK } from "api/end-points";
+import { API_GET_BOOKS } from "api/end-points";
 import { CharacterList } from "components";
 
 const BookPage = () => {
@@ -10,7 +10,7 @@ const BookPage = () => {
     data: book,
     loading,
     error,
-  } = useFetch<GetBook>(`${API_GET_BOOK}/${id}`);
+  } = useFetch<GetBook>(`${API_GET_BOOKS}/${id}`);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;

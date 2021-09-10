@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useFetch } from "hooks";
 import { Link } from "components";
 import { GetCharacter } from "types";
-import { API_GET_CHARACTER } from "api/end-points";
+import { API_GET_CHARACTERS } from "api/end-points";
 
 const CardContainer = styled.div`
   padding: 8px 16px;
@@ -15,7 +15,7 @@ const CharacterCard: React.FC<{ id: string }> = ({ id }) => {
     data: character,
     loading,
     error,
-  } = useFetch<GetCharacter>(`${API_GET_CHARACTER}/${id}`);
+  } = useFetch<GetCharacter>(`${API_GET_CHARACTERS}/${id}`);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
