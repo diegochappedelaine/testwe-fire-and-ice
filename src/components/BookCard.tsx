@@ -13,6 +13,12 @@ const CardContainer = styled.div`
   border: 1px solid #e2e2e2;
   box-sizing: border-box;
   box-shadow: 0px 5px 4px rgba(221, 221, 221, 0.25);
+  transition: background-color 0.2s ease-out;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
 `;
 
 type BookCardProps = {
@@ -26,7 +32,12 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
   return (
     <ALink to={`/book/${bookId}`}>
       <CardContainer>
-        {book.name} - {formatedReleaseDate}
+        <h2>{book.name}</h2>
+        <br />
+        <br />
+        <p>
+          {formatedReleaseDate} - {book.numberOfPages} pages
+        </p>
       </CardContainer>
     </ALink>
   );

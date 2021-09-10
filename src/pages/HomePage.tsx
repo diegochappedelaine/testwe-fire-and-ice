@@ -12,8 +12,13 @@ const BooksContainer = styled.ol`
 `;
 
 const HomePage = () => {
-  const { error, loading, data, navigationLinks, fetchData } =
-    useFetchLazy<GetBooks>();
+  const {
+    error,
+    loading,
+    data: books,
+    navigationLinks,
+    fetchData,
+  } = useFetchLazy<GetBooks>();
 
   useEffect(() => {
     fetchData(`${API_GET_BOOKS}?page=1&pageSize=10`);
@@ -22,15 +27,13 @@ const HomePage = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
-  if (!data) return <p>No datas</p>;
-
-  console.log(data);
+  if (!books) return <p>No datas</p>;
 
   return (
     <div>
       <h1>Game of Thrones</h1>
       <BooksContainer>
-        {data.map((book, index) => (
+        {books.map((book, index) => (
           <li key={index}>
             <BookCard book={book} />
           </li>
